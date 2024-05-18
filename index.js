@@ -15,7 +15,9 @@ app.use(bodyParser.json({limit: "30mb", extended: true}))
 app.use(bodyParser.urlencoded({limit: "30mb", extended: true}));
 app.use(cors());
 
-const PORT = 6001;
+// const PORT = 6001;
+const PORT = process.env.PORT || 6001;
+
 mongoose.connect(`${process.env.MONGO_URI}/Auctions`,{
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -422,5 +424,7 @@ mongoose.connect(`${process.env.MONGO_URI}/Auctions`,{
 
     app.listen(PORT, ()=>{
         console.log('running @ 6001');
+        console.log(`Server is running on port ${PORT}`);
+
     })
 }).catch((e)=> console.log(`Error in db connection ${e}`));
