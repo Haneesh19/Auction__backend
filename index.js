@@ -423,7 +423,7 @@ mongoose.connect(`${process.env.MONGO_URI}/Auctions`,{
 
 
     app.listen(PORT, ()=>{
-        console.log('running @ 6001');
+        console.log('DB connected');
         console.log(`Server is running on port ${PORT}`);
 
     })
